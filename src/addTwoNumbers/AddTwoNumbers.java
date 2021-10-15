@@ -1,3 +1,5 @@
+import com.sun.org.apache.xml.internal.serializer.ToStream;
+
 import java.lang.reflect.Array;
 
 public class AddTwoNumbers {
@@ -17,6 +19,9 @@ public class AddTwoNumbers {
         int num2=0;
         int sum=0;
         int i=1;
+        int[] arr=null;
+        ListNode head= null;
+        ListNode rh = head;
         while (l1.next!=null || l2.next!=null){
             if(l1!=null){
                 num1 = num1+l1.val*i;
@@ -28,12 +33,26 @@ public class AddTwoNumbers {
             }
             i=i*10;
         }
-        int len = String.valueOf(sum).length();
-        //for(int j=0;j<)
         sum=num1+num2;
-        System.out.println(sum+"num1"+num1+"num2"+num2+"len"+len);
-        return null;
+        String temp= Integer.toString(sum);
+        String temp2;
+        int temp3;
+        System.out.println(temp.length());
+        System.out.println(sum+"num1"+num1+"num2"+num2);
 
+        for(int j=0; j<=temp.length(); j++) {
+            if (j!=temp.length()) {
+                temp2 = temp.substring(j, j+1);
+            } else {
+                temp2 = temp.substring(j);
+                //System.out.println(i);
+            }
+            temp3 =  Integer.parseInt(temp2);
+            arr[j] = temp3;
+        }
+
+
+        return create(arr);
     }
     public static void main(String[] args) {
         int[] a = {4,5,6};
